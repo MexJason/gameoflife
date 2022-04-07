@@ -1,0 +1,27 @@
+#: import menu menu
+
+MainWidget:
+
+<MainWidget>:
+    canvas.before:
+        Rectangle:
+            size: self.size
+            source: 'images/bg1.jpg'
+    menu_widget: menu_widget #have to declare the variable to use it
+    perspective_point_x: self.width/2 # this is binding, will be automatically updated
+    perspective_point_y: self.height*.75
+
+    MenuWidget: # must include an import statement for this to work, statement on line 1
+        id: menu_widget
+    Label:
+        text: root.score_txt
+        font_size: dp(20)
+        font_name: 'fonts/Eurostile.ttf'
+        size_hint: .17, .17
+        pos_hint: { "x": 0, "top": 1}
+    Label:
+        text: "HIGH SCORE: " + str(root.high_score_txt)
+        font_size: dp(20)
+        font_name: 'fonts/Eurostile.ttf'
+        size_hint: .17, .17
+        pos_hint: {"x": .82, "top": 1}
